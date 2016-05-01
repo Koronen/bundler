@@ -149,7 +149,7 @@ end
         gem "foo", :git => '#{lib_path("foo-1.0")}'
       G
 
-      bundle "#{cmd}"
+      bundle cmd
 
       expect(out).to include("Your Gemfile contains path and git dependencies.")
     end
@@ -162,7 +162,7 @@ end
       G
 
       bundle "#{cmd} --all"
-      bundle "#{cmd}"
+      bundle cmd
 
       expect(out).not_to include("Your Gemfile contains path and git dependencies.")
     end

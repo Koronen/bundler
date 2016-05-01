@@ -175,8 +175,8 @@ describe "bundle exec" do
       gem "rack"
     G
 
-    rubylib = ENV["RUBYLIB"]
-    rubylib = "#{rubylib}".split(File::PATH_SEPARATOR).unshift "#{bundler_path}"
+    rubylib = ENV["RUBYLIB"].to_s
+    rubylib = rubylib.split(File::PATH_SEPARATOR).unshift(bundler_path)
     rubylib = rubylib.uniq.join(File::PATH_SEPARATOR)
 
     bundle "exec 'echo $RUBYLIB'"

@@ -63,7 +63,7 @@ module Bundler
     end
 
     def ruby_version
-      str = String.new("#{RUBY_VERSION}")
+      str = String.new(RUBY_VERSION)
       if RUBY_VERSION < "1.9"
         str << " (#{RUBY_RELEASE_DATE}"
         str << " patchlevel #{RUBY_PATCHLEVEL}" if defined? RUBY_PATCHLEVEL

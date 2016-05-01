@@ -8,7 +8,7 @@ files = ["specs.4.8.gz",
          "gems/rcov-1.0-mswin32.gem"]
 
 # Set up pretend http gem server with FakeWeb
-$LOAD_PATH.unshift "#{Dir[base_system_gems.join("gems/fakeweb*/lib")].first}"
+$LOAD_PATH.unshift Dir[base_system_gems.join("gems/fakeweb*/lib")].first
 require "fakeweb"
 
 FakeWeb.allow_net_connect = false
