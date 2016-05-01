@@ -466,7 +466,7 @@ module Bundler
           lines      = contents.lines.to_a
           indent     = " #  "
           indicator  = indent.tr('#', ">")
-          first_line = (line_numer.zero?)
+          first_line = line_numer.zero?
           last_line  = (line_numer == (lines.count - 1))
 
           m << "\n"

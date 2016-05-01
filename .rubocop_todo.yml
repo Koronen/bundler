@@ -202,10 +202,3 @@ Style/PredicateName:
 # SupportedStyles: compact, exploded
 Style/RaiseArgs:
   Enabled: false
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/RedundantParentheses:
-  Exclude:
-    - 'lib/bundler/cli/console.rb'
-    - 'lib/bundler/dsl.rb'
