@@ -209,10 +209,3 @@ Style/RedundantParentheses:
   Exclude:
     - 'lib/bundler/cli/console.rb'
     - 'lib/bundler/dsl.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: AllowForAlignment.
-Style/SpaceAroundOperators:
-  Exclude:
-    - 'lib/bundler/retry.rb'

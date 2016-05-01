@@ -89,6 +89,9 @@ Style/DotPosition:
 Style/EachWithObject:
   Enabled: false
 
+Style/SpaceAroundOperators:
+  AllowForAlignment: true
+
 Style/SpecialGlobalVars:
   Enabled: false
 
