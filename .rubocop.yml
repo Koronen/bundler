@@ -95,6 +95,9 @@ Style/SpecialGlobalVars:
 Style/TrailingCommaInArguments:
   Enabled: false
 
+Style/TrailingCommaInLiteral:
+  Enabled: false
+
 Performance/FlatMap:
   Enabled: false
 

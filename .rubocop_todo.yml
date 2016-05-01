@@ -216,19 +216,3 @@ Style/RedundantParentheses:
 Style/SpaceAroundOperators:
   Exclude:
     - 'lib/bundler/retry.rb'
-
-# Offense count: 11
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleForMultiline, SupportedStyles.
-# SupportedStyles: comma, consistent_comma, no_comma
-Style/TrailingCommaInLiteral:
-  Exclude:
-    - 'lib/bundler/cli/gem.rb'
-    - 'lib/bundler/dependency.rb'
-    - 'lib/bundler/fetcher.rb'
-    - 'lib/bundler/gem_helpers.rb'
-    - 'lib/bundler/graph.rb'
-    - 'lib/bundler/ruby_version.rb'
-    - 'lib/bundler/similarity_detector.rb'
-    - 'spec/support/artifice/endpoint.rb'
-    - 'spec/support/rubygems_ext.rb'
