@@ -51,7 +51,7 @@ module Bundler
           @ref      = ref
           @revision = revision
           @git      = git
-          raise GitNotInstalledError.new if allow? && !Bundler.git_present?
+          raise GitNotInstalledError if allow? && !Bundler.git_present?
         end
 
         def revision
@@ -146,7 +146,7 @@ module Bundler
 
         def git(command, check_errors = true, error_msg = nil)
           command_with_no_credentials = URICredentialsFilter.credential_filtered_string(command, uri)
-          raise GitNotAllowedError.new(command_with_no_credentials) unless allow?
+          raise GitNotAllowedError, command_with_no_credentials unless allow?
 
           out = SharedHelpers.with_clean_git_env { `git #{command}` }
 

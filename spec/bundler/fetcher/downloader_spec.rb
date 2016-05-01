@@ -156,7 +156,7 @@ describe Bundler::Fetcher::Downloader do
     end
 
     context "when the request response causes a NoMethodError" do
-      before { allow(connection).to receive(:request).with(uri, net_http_get) { raise NoMethodError.new(message) } }
+      before { allow(connection).to receive(:request).with(uri, net_http_get) { raise NoMethodError, message } }
 
       context "and the error message is about use_ssl=" do
         let(:message) { "undefined method 'use_ssl='" }
@@ -176,7 +176,7 @@ describe Bundler::Fetcher::Downloader do
     end
 
     context "when the request response causes a OpenSSL::SSL::SSLError" do
-      before { allow(connection).to receive(:request).with(uri, net_http_get) { raise OpenSSL::SSL::SSLError.new } }
+      before { allow(connection).to receive(:request).with(uri, net_http_get) { raise OpenSSL::SSL::SSLError } }
 
       it "should raise a LoadError about openssl" do
         expect { subject.request(uri, options) }.to raise_error(Bundler::Fetcher::CertificateFailureError,

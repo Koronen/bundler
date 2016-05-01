@@ -46,7 +46,7 @@ module Bundler
       Pathname.new(full_path).relative_path_from(Bundler.root.join(bundler_path)).to_s
     rescue TypeError
       error_message = "#{spec.name} #{spec.version} has an invalid gemspec"
-      raise Gem::InvalidSpecificationException.new(error_message)
+      raise Gem::InvalidSpecificationException, error_message
     end
   end
 end

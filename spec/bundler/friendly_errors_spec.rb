@@ -46,7 +46,7 @@ describe Bundler, "friendly errors" do
   it "rescues Thor::AmbiguousTaskError and raises SystemExit" do
     expect do
       Bundler.with_friendly_errors do
-        raise Thor::AmbiguousTaskError.new("")
+        raise Thor::AmbiguousTaskError, ""
       end
     end.to raise_error(SystemExit)
   end

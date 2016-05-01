@@ -22,7 +22,7 @@ describe Bundler::EndpointSpecification do
     context "when an ArgumentError occurs" do
       before do
         allow(Gem::Dependency).to receive(:new).with(name, requirement1, requirement2) {
-          raise ArgumentError.new("Some error occurred")
+          raise ArgumentError, "Some error occurred"
         }
       end
 
@@ -35,7 +35,7 @@ describe Bundler::EndpointSpecification do
     context "when there is an ill formed requirement" do
       before do
         allow(Gem::Dependency).to receive(:new).with(name, requirement1, requirement2) {
-          raise ArgumentError.new("Ill-formed requirement [\"#<YAML::Syck::DefaultKey")
+          raise ArgumentError, "Ill-formed requirement [\"#<YAML::Syck::DefaultKey"
         }
         # Eliminate extra line break in rspec output due to `puts` in `#build_dependency`
         allow(subject).to receive(:puts) {}

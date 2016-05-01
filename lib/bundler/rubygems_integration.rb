@@ -57,7 +57,7 @@ module Bundler
     rescue Gem::InvalidSpecificationException => e
       error_message = "The gemspec at #{spec.loaded_from} is not valid. Please fix this gemspec.\n" \
         "The validation error was '#{e.message}'\n"
-      raise Gem::InvalidSpecificationException.new(error_message)
+      raise Gem::InvalidSpecificationException, error_message
     rescue Errno::ENOENT
       nil
     end

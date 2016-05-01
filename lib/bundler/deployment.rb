@@ -47,7 +47,7 @@ module Bundler
           bundle_with    = [*context.fetch(:bundle_with, [])].compact
           app_path = context.fetch(:latest_release)
           if app_path.to_s.empty?
-            raise error_type.new("Cannot detect current release path - make sure you have deployed at least once.")
+            raise error_type, "Cannot detect current release path - make sure you have deployed at least once."
           end
           args = ["--gemfile #{File.join(app_path, bundle_gemfile)}"]
           args << "--path #{bundle_dir}" unless bundle_dir.to_s.empty?

@@ -88,7 +88,7 @@ describe Bundler::Fetcher::Index do
     end
 
     context "when a OpenSSL::SSL::SSLError occurs" do
-      before { allow(rubygems).to receive(:fetch_all_remote_specs) { raise OpenSSL::SSL::SSLError.new(error_message) } }
+      before { allow(rubygems).to receive(:fetch_all_remote_specs) { raise OpenSSL::SSL::SSLError, error_message } }
 
       it_behaves_like "the error is properly handled"
     end

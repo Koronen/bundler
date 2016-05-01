@@ -24,7 +24,7 @@ describe Bundler::Fetcher::Dependency do
     context "when there is no network access" do
       before do
         allow(downloader).to receive(:fetch).with(dependency_api_uri) {
-          raise Bundler::Fetcher::NetworkDownError.new("Network Down Message")
+          raise Bundler::Fetcher::NetworkDownError, "Network Down Message"
         }
       end
 
@@ -38,7 +38,7 @@ describe Bundler::Fetcher::Dependency do
 
       before do
         allow(downloader).to receive(:fetch).with(dependency_api_uri) {
-          raise Bundler::Fetcher::AuthenticationRequiredError.new(remote_uri)
+          raise Bundler::Fetcher::AuthenticationRequiredError, remote_uri
         }
       end
 
@@ -49,7 +49,7 @@ describe Bundler::Fetcher::Dependency do
     end
 
     context "when there is an http error" do
-      before { allow(downloader).to receive(:fetch).with(dependency_api_uri) { raise Bundler::HTTPError.new } }
+      before { allow(downloader).to receive(:fetch).with(dependency_api_uri) { raise Bundler::HTTPError } }
 
       it "should be falsey" do
         expect(subject.available?).to be_falsey
@@ -164,21 +164,21 @@ describe Bundler::Fetcher::Dependency do
     end
 
     context "when an HTTPError occurs" do
-      before { allow(subject).to receive(:dependency_specs) { raise Bundler::HTTPError.new } }
+      before { allow(subject).to receive(:dependency_specs) { raise Bundler::HTTPError } }
 
       it_behaves_like "the error is properly handled"
       it_behaves_like "the error suggests retrying with the full index"
     end
 
     context "when a GemspecError occurs" do
-      before { allow(subject).to receive(:dependency_specs) { raise Bundler::GemspecError.new } }
+      before { allow(subject).to receive(:dependency_specs) { raise Bundler::GemspecError } }
 
       it_behaves_like "the error is properly handled"
       it_behaves_like "the error suggests retrying with the full index"
     end
 
     context "when a MarshalError occurs" do
-      before { allow(subject).to receive(:dependency_specs) { raise Bundler::MarshalError.new } }
+      before { allow(subject).to receive(:dependency_specs) { raise Bundler::MarshalError } }
 
       it_behaves_like "the error is properly handled"
 

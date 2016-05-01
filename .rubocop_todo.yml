@@ -196,9 +196,3 @@ Style/PredicateName:
     - 'lib/bundler/source/git.rb'
     - 'lib/bundler/source/git/git_proxy.rb'
     - 'lib/bundler/source/path.rb'
-
-# Offense count: 25
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: compact, exploded
-Style/RaiseArgs:
-  Enabled: false

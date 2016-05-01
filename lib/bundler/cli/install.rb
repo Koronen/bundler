@@ -187,7 +187,7 @@ module Bundler
         error_message = String.new
         error_message << "You have specified both a path to install your gems to as well as --system. Please choose.\n" if options[:path]
         error_message << "You have specified both --deployment as well as --system. Please choose.\n" if options[:deployment]
-        raise InvalidOption.new(error_message)
+        raise InvalidOption, error_message
       end
     end
   end

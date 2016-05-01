@@ -197,7 +197,7 @@ describe Bundler::SharedHelpers do
         proc do
           ENV["GIT_DIR"] = "NEW_ENV_GIT_DIR"
           ENV["GIT_WORK_TREE"] = "NEW_ENV_GIT_WORK_TREE"
-          raise RuntimeError.new
+          raise RuntimeError
         end end
 
       it "restores the git env after" do

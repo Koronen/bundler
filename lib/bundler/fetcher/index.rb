@@ -10,7 +10,7 @@ module Bundler
       rescue Gem::RemoteFetcher::FetchError, OpenSSL::SSL::SSLError, Net::HTTPFatalError => e
         case e.message
         when /certificate verify failed/
-          raise CertificateFailureError.new(display_uri)
+          raise CertificateFailureError, display_uri
         when /401/
           raise AuthenticationRequiredError, remote_uri
         when /403/
